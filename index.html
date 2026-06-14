@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Código da Fertilidade | Laiz Aline</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --vinho:     #5C1820;
+    --vinho-md:  #7D2B3E;
+    --vinho-lt:  #9E3A51;
+    --dourado:   #C9A96E;
+    --dourado-dk:#A8843F;
+    --dourado-lt:#EAD9B8;
+    --creme:     #F5EDDA;
+    --creme-lt:  #FBF6EE;
+    --creme-dk:  #EDE0CA;
+    --grafite:   #2E1A1A;
+    --muted:     #6B4F4F;
+    --border:    #DDD0B8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--creme-lt);
+    color: var(--grafite);
+    line-height: 1.6;
+  }
+
+  .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+
+  /* ── ORNAMENT ── */
+  .ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin: 0 auto 20px;
+  }
+  .ornament span { flex: 1; height: 1px; background: var(--dourado); opacity: 0.4; }
+  .ornament i { color: var(--dourado); font-style: normal; font-size: 11px; }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--vinho);
+    text-align: center;
+    padding: 11px 20px;
+    font-size: 11.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--dourado-lt);
+    font-weight: 500;
+  }
+
+  /* ══════════════════════════════
+     HERO — CREAM BACKGROUND
+  ══════════════════════════════ */
+  .hero {
+    background: var(--creme);
+    padding: 60px 28px 64px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+    opacity: 0.5;
+  }
+
+  /* ── LOGO ── */
+  .logo-wrap {
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s ease forwards 0.1s; opacity: 0;
+  }
+
+  .logo-icon { width: 72px; height: auto; display: block; margin: 0 auto 10px; }
+
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--vinho);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .logo-tagline {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .logo-line {
+    width: 40px; height: 1.5px;
+    background: var(--dourado);
+    margin: 0 auto;
+  }
+
+  /* ── HERO TITLE ── */
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-weight: 400;
+    animation: fadeUp 0.6s ease forwards 0.25s; opacity: 0;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 9vw, 80px);
+    line-height: 1.0;
+    margin-bottom: 6px;
+    animation: fadeUp 0.6s ease forwards 0.35s; opacity: 0;
+  }
+  .hero-title .line1 { color: var(--vinho); font-weight: 500; display: block; }
+  .hero-title .line2 { color: var(--dourado); font-weight: 400; font-style: italic; display: block; }
+
+  .hero-diamond {
+    color: var(--dourado);
+    font-size: 14px;
+    margin: 18px 0 14px;
+    display: block;
+    animation: fadeUp 0.6s ease forwards 0.45s; opacity: 0;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 400px;
+    margin: 0 auto 6px;
+    animation: fadeUp 0.6s ease forwards 0.5s; opacity: 0;
+  }
+  .hero-sub strong { color: var(--vinho); font-weight: 500; }
+
+  .hero-includes-line {
+    font-size: 12px;
+    color: var(--dourado-dk);
+    letter-spacing: 1.5px;
+    margin-bottom: 36px;
+    font-weight: 500;
+    text-transform: uppercase;
+    animation: fadeUp 0.6s ease forwards 0.55s; opacity: 0;
+  }
+
+  /* ── PRODUCT MOCKUP ── */
+  .mockup-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.7s ease forwards 0.6s; opacity: 0;
+  }
+
+  /* Book mockup */
+  .book {
+    width: 150px;
+    position: relative;
+  }
+  .book-inner {
+    background: linear-gradient(150deg, #3D0F18 0%, #5C1820 40%, #7D2B3E 100%);
+    border-radius: 3px 8px 8px 3px;
+    padding: 20px 16px 18px;
+    box-shadow: -5px 5px 24px rgba(0,0,0,0.35), 5px 0 0 #2a0a10 inset;
+    position: relative;
+    text-align: center;
+  }
+  .book-spine {
+    position: absolute; top: 0; left: 0; bottom: 0; width: 8px;
+    background: linear-gradient(to right, #1a0508, #3D0F18);
+    border-radius: 3px 0 0 3px;
+  }
+  .book-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(234,217,184,0.6);
+    margin-bottom: 8px;
+  }
+  .book-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--creme-lt);
+    line-height: 1.25;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .book-title em { color: var(--dourado); font-style: italic; }
+  /* Uterus SVG illustration */
+  .book-illustration {
+    margin: 10px auto 8px;
+    width: 60px; height: 60px;
+  }
+  .book-sub {
+    font-size: 6.5px;
+    color: rgba(234,217,184,0.55);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .book-label {
+    font-size: 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    opacity: 0.7;
+    border-top: 1px solid rgba(201,169,110,0.2);
+    padding-top: 6px;
+    font-weight: 500;
+  }
+
+  /* Tablet mockup */
+  .tablet {
+    width: 120px;
+  }
+  .tablet-outer {
+    background: #1C1C1C;
+    border-radius: 10px;
+    padding: 7px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.4);
+  }
+  .tablet-screen {
+    background: linear-gradient(150deg, #3D0F18 0%, #5C1820 50%, #7D2B3E 100%);
+    border-radius: 6px;
+    padding: 14px 12px 12px;
+    text-align: center;
+  }
+  .tablet-cam {
+    width: 6px; height: 6px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+  }
+
+  /* ── BADGE DE INCLUSÃO ── */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: var(--creme-lt);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s ease forwards 0.65s; opacity: 0;
+  }
+  .hero-badge::before { content: '📖'; font-size: 16px; }
+  .hero-badge strong { color: var(--grafite); font-weight: 500; }
+
+  /* ── CTA BUTTON ── */
+  .btn-cta {
+    display: inline-block;
+    background: var(--vinho);
+    color: var(--creme-lt);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 17px 48px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s;
+  }
+  .btn-cta:hover { background: var(--grafite); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(92,24,32,0.25); }
+
+  .btn-cta-gold {
+    display: inline-block;
+    background: var(--dourado);
+    color: var(--vinho);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 17px 48px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s;
+  }
+  .btn-cta-gold:hover { background: var(--dourado-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(92,24,32,0.2); }
+
+  .hero-price-note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .hero-price-note strong { color: var(--vinho); font-weight: 600; font-size: 22px; }
+
+  /* ══════════════════════
+     SECTIONS
+  ══════════════════════ */
+  section { padding: 72px 0; }
+  section.alt { background: var(--creme); }
+  section.dark {
+    background: var(--vinho);
+    background: linear-gradient(160deg, #3D0F18 0%, #5C1820 50%, #7D2B3E 100%);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .section-label.dark-label { color: var(--dourado); }
+  .section-label.muted-label { color: var(--muted); }
+
+  h2.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 400;
+    color: var(--vinho);
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  h2.section-title em { font-style: italic; color: var(--dourado-dk); }
+  h2.section-title.light { color: var(--creme-lt); }
+  h2.section-title.light em { color: var(--dourado-lt); }
+
+  .section-intro {
+    font-size: 15px;
+    color: var(--muted);
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .section-intro.light { color: rgba(253,246,238,0.65); }
+
+  /* ── DÚVIDA ── */
+  .doubt-box {
+    border: 1.5px solid var(--border);
+    border-left: 3px solid var(--vinho);
+    padding: 28px 32px;
+    background: white;
+    border-radius: 0 3px 3px 0;
+    margin-bottom: 28px;
+  }
+  .doubt-box blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-style: italic;
+    color: var(--vinho);
+    line-height: 1.35;
+    margin-bottom: 0;
+  }
+  .doubt-answer {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+  .doubt-answer strong { color: var(--grafite); font-weight: 500; }
+
+  /* ── PARA QUEM ── */
+  .forwho-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .forwho-card {
+    padding: 20px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: var(--creme-lt);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .forwho-card:hover { border-color: var(--dourado); background: white; }
+  .forwho-icon {
+    width: 34px; height: 34px;
+    background: rgba(92,24,32,0.07);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .forwho-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--vinho);
+    margin-bottom: 3px;
+  }
+  .forwho-text span {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* ── CONTEÚDO (dark section) ── */
+  .learn-list { display: flex; flex-direction: column; gap: 10px; }
+  .learn-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,169,110,0.18);
+    border-radius: 3px;
+    transition: background 0.2s;
+  }
+  .learn-card:hover { background: rgba(255,255,255,0.1); }
+  .learn-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--dourado);
+    opacity: 0.35;
+    flex-shrink: 0;
+    width: 34px;
+    line-height: 1;
+  }
+  .learn-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--creme-lt);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .learn-card p {
+    font-size: 13px;
+    color: rgba(251,246,238,0.55);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── PRODUTO ── */
+  .product-wrap {
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 36px rgba(92,24,32,0.07);
+  }
+  .product-head {
+    background: var(--vinho);
+    padding: 26px 32px;
+    text-align: center;
+  }
+  .product-head h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--creme-lt);
+    margin-bottom: 4px;
+  }
+  .product-head p { font-size: 12px; color: rgba(251,246,238,0.55); font-weight: 300; letter-spacing: 0.5px; }
+  .product-body { padding: 30px 32px; }
+  .product-row {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .product-row:last-child { border-bottom: none; }
+  .product-icon {
+    width: 44px; height: 44px;
+    background: rgba(92,24,32,0.07);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+  .product-row h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    color: var(--vinho);
+    margin-bottom: 3px;
+  }
+  .product-row p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── DEPOIMENTOS ── */
+  .testimonials { display: flex; flex-direction: column; gap: 14px; }
+  .testimonial {
+    padding: 26px 28px;
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    position: relative;
+  }
+  .testimonial::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    color: var(--dourado);
+    opacity: 0.25;
+    position: absolute;
+    top: 4px; left: 18px;
+    line-height: 1;
+  }
+  .t-stars { color: var(--dourado); font-size: 11px; letter-spacing: 1.5px; margin-bottom: 8px; padding-top: 16px; }
+  .t-text {
+    font-size: 14.5px;
+    color: var(--grafite);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 18px;
+  }
+  .t-author { display: flex; align-items: center; gap: 12px; }
+  .t-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--vinho), var(--vinho-lt));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: white;
+    flex-shrink: 0;
+  }
+  .t-name { font-size: 13px; font-weight: 500; color: var(--grafite); }
+  .t-detail { font-size: 11.5px; color: var(--muted); font-weight: 300; }
+
+  /* ── PREÇO ── */
+  .price-section {
+    background: linear-gradient(160deg, #3D0F18 0%, #5C1820 55%, #7D2B3E 100%);
+    padding: 80px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .price-card {
+    max-width: 460px;
+    margin: 0 auto 32px;
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 4px;
+    padding: 38px 36px;
+    background: rgba(255,255,255,0.05);
+    text-align: center;
+  }
+  .price-label-sm {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(251,246,238,0.45);
+    margin-bottom: 8px;
+  }
+  .price-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 68px;
+    color: var(--creme-lt);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .price-big sup { font-size: 30px; vertical-align: super; color: var(--dourado); }
+  .price-note-sm {
+    font-size: 12px;
+    color: rgba(251,246,238,0.4);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .price-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  .price-list li {
+    font-size: 13.5px;
+    color: rgba(251,246,238,0.72);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .price-list li::before { content: '✦'; color: var(--dourado); font-size: 9px; flex-shrink: 0; }
+
+  .guarantee {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 460px;
+    margin: 28px auto 0;
+    padding: 22px 26px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,169,110,0.18);
+    border-radius: 3px;
+    text-align: left;
+  }
+  .guarantee-icon { font-size: 38px; flex-shrink: 0; }
+  .guarantee h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    color: var(--creme-lt);
+    margin-bottom: 4px;
+  }
+  .guarantee p {
+    font-size: 12.5px;
+    color: rgba(251,246,238,0.5);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── COMO RECEBER ── */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px; top: 42px; bottom: -12px; width: 1px;
+    background: var(--border);
+  }
+  .step-circle {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--vinho);
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 14px rgba(92,24,32,0.28);
+  }
+  .step-body { padding: 8px 0 40px; }
+  .step-body h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    color: var(--vinho);
+    margin-bottom: 5px;
+  }
+  .step-body p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── FAQ ── */
+  .faq-list { display: flex; flex-direction: column; gap: 8px; }
+  .faq-item {
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 22px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--grafite);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    gap: 12px;
+  }
+  .faq-q::after { content: '+'; font-size: 22px; color: var(--vinho); transition: transform 0.25s; flex-shrink: 0; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    display: none;
+    padding: 0 22px 18px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+    border-top: 1px solid var(--border);
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── CTA FINAL ── */
+  .cta-final { background: var(--creme); text-align: center; padding: 80px 28px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--vinho);
+    padding: 36px 28px;
+    text-align: center;
+  }
+  footer p {
+    font-size: 11.5px;
+    color: rgba(251,246,238,0.4);
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .forwho-grid { grid-template-columns: 1fr; }
+    .guarantee { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">Aula + E-book &nbsp;·&nbsp; Apenas R$47 &nbsp;·&nbsp; Garantia de 7 dias</div>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <svg class="logo-icon" viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Crescent moon — thin C shape -->
+      <path d="M38 72 C20 62 16 40 24 24 C30 12 42 5 56 5 C44 10 36 22 36 38 C36 58 50 72 68 72 C62 76 56 78 50 78 C45 78 41 76 38 72 Z" fill="#5C1820" opacity="0.9"/>
+      <!-- Main botanical stem -->
+      <line x1="62" y1="78" x2="82" y2="10" stroke="#5C1820" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Leaves growing left of stem -->
+      <ellipse cx="54" cy="58" rx="11" ry="5" fill="#5C1820" opacity="0.85" transform="rotate(-40 54 58)"/>
+      <ellipse cx="60" cy="44" rx="10" ry="4.5" fill="#5C1820" opacity="0.85" transform="rotate(-35 60 44)"/>
+      <ellipse cx="67" cy="30" rx="9" ry="4" fill="#5C1820" opacity="0.8" transform="rotate(-28 67 30)"/>
+      <!-- Leaves growing right of stem -->
+      <ellipse cx="73" cy="52" rx="10" ry="4.5" fill="#5C1820" opacity="0.8" transform="rotate(35 73 52)"/>
+      <ellipse cx="77" cy="38" rx="9" ry="4" fill="#5C1820" opacity="0.8" transform="rotate(28 77 38)"/>
+      <ellipse cx="80" cy="24" rx="7.5" ry="3.5" fill="#5C1820" opacity="0.75" transform="rotate(22 80 24)"/>
+      <!-- Top sprigs -->
+      <ellipse cx="83" cy="14" rx="6" ry="3" fill="#5C1820" opacity="0.7" transform="rotate(15 83 14)"/>
+      <ellipse cx="76" cy="12" rx="5.5" ry="2.5" fill="#5C1820" opacity="0.7" transform="rotate(-20 76 12)"/>
+      <!-- Small berries -->
+      <circle cx="56" cy="62" r="2" fill="#5C1820" opacity="0.6"/>
+      <circle cx="73" cy="56" r="2" fill="#5C1820" opacity="0.6"/>
+    </svg>
+    <div class="logo-name">Laiz Aline</div>
+    <div class="logo-tagline">Fertilidade Natural</div>
+    <div class="logo-line"></div>
+  </div>
+
+  <div class="hero-eyebrow fade" style="animation-delay:.25s">Aula + E-book</div>
+
+  <h1 class="hero-title fade" style="animation-delay:.35s">
+    <span class="line1">Código da</span>
+    <span class="line2">Fertilidade</span>
+  </h1>
+
+  <span class="hero-diamond fade" style="animation-delay:.45s">✦</span>
+
+  <p class="hero-sub fade" style="animation-delay:.5s">
+    A ciência por trás do <strong>Método Billings</strong><br>e por que ele é tão seguro
+  </p>
+
+  <div class="hero-includes-line fade" style="animation-delay:.55s">• Aula + E-book •</div>
+
+  <!-- Mockup -->
+  <div class="mockup-area">
+    <!-- Book -->
+    <div class="book">
+      <div class="book-inner">
+        <div class="book-spine"></div>
+        <div class="book-logo-text">Laiz Aline · Fertilidade Natural</div>
+        <div class="book-title"><em>Código da</em><br>Fertilidade</div>
+
+        <!-- Uterus + lock illustration in SVG -->
+        <div class="book-illustration">
+          <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Decorative rays -->
+            <circle cx="35" cy="35" r="28" stroke="rgba(201,169,110,0.15)" stroke-width="1"/>
+            <circle cx="35" cy="35" r="22" stroke="rgba(201,169,110,0.1)" stroke-width="1"/>
+            <!-- Uterus shape -->
+            <path d="M35 48 C28 48 22 44 20 38 L18 30 C18 26 21 23 25 23 L45 23 C49 23 52 26 52 30 L50 38 C48 44 42 48 35 48 Z" stroke="#C9A96E" stroke-width="1.2" fill="none" opacity="0.8"/>
+            <!-- Fallopian tubes -->
+            <path d="M20 28 C14 24 10 26 8 30" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7"/>
+            <path d="M50 28 C56 24 60 26 62 30" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7"/>
+            <!-- Ovaries -->
+            <ellipse cx="8" cy="32" rx="4" ry="3" stroke="#C9A96E" stroke-width="1" fill="none" opacity="0.6"/>
+            <ellipse cx="62" cy="32" rx="4" ry="3" stroke="#C9A96E" stroke-width="1" fill="none" opacity="0.6"/>
+            <!-- Lock body -->
+            <rect x="29" y="33" width="12" height="9" rx="2" fill="#C9A96E" opacity="0.85"/>
+            <!-- Lock shackle -->
+            <path d="M31 33 L31 29 C31 26 39 26 39 29 L39 33" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.85"/>
+            <!-- Lock keyhole -->
+            <circle cx="35" cy="37" r="1.5" fill="#5C1820" opacity="0.9"/>
+            <!-- Small decorative dots -->
+            <circle cx="23" cy="42" r="1.5" fill="#C9A96E" opacity="0.4"/>
+            <circle cx="47" cy="42" r="1.5" fill="#C9A96E" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <div class="book-sub">A ciência por trás do Método Billings<br>e por que ele é tão seguro</div>
+        <div class="book-label">E-book</div>
+      </div>
+    </div>
+
+    <!-- Tablet -->
+    <div class="tablet">
+      <div class="tablet-outer">
+        <div class="tablet-cam"></div>
+        <div class="tablet-screen">
+          <divp: 8px; }
+  .faq-item {
+    border: 1.5px solid var(--border);
+    border-radius: 3px;
+    background: white;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 22px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--grafite);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    gap: 12px;
+  }
+  .faq-q::after { content: '+'; font-size: 22px; color: var(--vinho); transition: transform 0.25s; flex-shrink: 0; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    display: none;
+    padding: 0 22px 18px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+    border-top: 1px solid var(--border);
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── CTA FINAL ── */
+  .cta-final { background: var(--creme); text-align: center; padding: 80px 28px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--vinho);
+    padding: 36px 28px;
+    text-align: center;
+  }
+  footer p {
+    font-size: 11.5px;
+    color: rgba(251,246,238,0.4);
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .forwho-grid { grid-template-columns: 1fr; }
+    .guarantee { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">Aula + E-book &nbsp;·&nbsp; Apenas R$47 &nbsp;·&nbsp; Garantia de 7 dias</div>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <svg class="logo-icon" viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Crescent moon — thin C shape -->
+      <path d="M38 72 C20 62 16 40 24 24 C30 12 42 5 56 5 C44 10 36 22 36 38 C36 58 50 72 68 72 C62 76 56 78 50 78 C45 78 41 76 38 72 Z" fill="#5C1820" opacity="0.9"/>
+      <!-- Main botanical stem -->
+      <line x1="62" y1="78" x2="82" y2="10" stroke="#5C1820" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Leaves growing left of stem -->
+      <ellipse cx="54" cy="58" rx="11" ry="5" fill="#5C1820" opacity="0.85" transform="rotate(-40 54 58)"/>
+      <ellipse cx="60" cy="44" rx="10" ry="4.5" fill="#5C1820" opacity="0.85" transform="rotate(-35 60 44)"/>
+      <ellipse cx="67" cy="30" rx="9" ry="4" fill="#5C1820" opacity="0.8" transform="rotate(-28 67 30)"/>
+      <!-- Leaves growing right of stem -->
+      <ellipse cx="73" cy="52" rx="10" ry="4.5" fill="#5C1820" opacity="0.8" transform="rotate(35 73 52)"/>
+      <ellipse cx="77" cy="38" rx="9" ry="4" fill="#5C1820" opacity="0.8" transform="rotate(28 77 38)"/>
+      <ellipse cx="80" cy="24" rx="7.5" ry="3.5" fill="#5C1820" opacity="0.75" transform="rotate(22 80 24)"/>
+      <!-- Top sprigs -->
+      <ellipse cx="83" cy="14" rx="6" ry="3" fill="#5C1820" opacity="0.7" transform="rotate(15 83 14)"/>
+      <ellipse cx="76" cy="12" rx="5.5" ry="2.5" fill="#5C1820" opacity="0.7" transform="rotate(-20 76 12)"/>
+      <!-- Small berries -->
+      <circle cx="56" cy="62" r="2" fill="#5C1820" opacity="0.6"/>
+      <circle cx="73" cy="56" r="2" fill="#5C1820" opacity="0.6"/>
+    </svg>
+    <div class="logo-name">Laiz Aline</div>
+    <div class="logo-tagline">Fertilidade Natural</div>
+    <div class="logo-line"></div>
+  </div>
+
+  <div class="hero-eyebrow fade" style="animation-delay:.25s">Aula + E-book</div>
+
+  <h1 class="hero-title fade" style="animation-delay:.35s">
+    <span class="line1">Código da</span>
+    <span class="line2">Fertilidade</span>
+  </h1>
+
+  <span class="hero-diamond fade" style="animation-delay:.45s">✦</span>
+
+  <p class="hero-sub fade" style="animation-delay:.5s">
+    A ciência por trás do <strong>Método Billings</strong><br>e por que ele é tão seguro
+  </p>
+
+  <div class="hero-includes-line fade" style="animation-delay:.55s">• Aula + E-book •</div>
+
+  <!-- Mockup -->
+  <div class="mockup-area">
+    <!-- Book -->
+    <div class="book">
+      <div class="book-inner">
+        <div class="book-spine"></div>
+        <div class="book-logo-text">Laiz Aline · Fertilidade Natural</div>
+        <div class="book-title"><em>Código da</em><br>Fertilidade</div>
+
+        <!-- Uterus + lock illustration in SVG -->
+        <div class="book-illustration">
+          <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Decorative rays -->
+            <circle cx="35" cy="35" r="28" stroke="rgba(201,169,110,0.15)" stroke-width="1"/>
+            <circle cx="35" cy="35" r="22" stroke="rgba(201,169,110,0.1)" stroke-width="1"/>
+            <!-- Uterus shape -->
+            <path d="M35 48 C28 48 22 44 20 38 L18 30 C18 26 21 23 25 23 L45 23 C49 23 52 26 52 30 L50 38 C48 44 42 48 35 48 Z" stroke="#C9A96E" stroke-width="1.2" fill="none" opacity="0.8"/>
+            <!-- Fallopian tubes -->
+            <path d="M20 28 C14 24 10 26 8 30" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7"/>
+            <path d="M50 28 C56 24 60 26 62 30" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7"/>
+            <!-- Ovaries -->
+            <ellipse cx="8" cy="32" rx="4" ry="3" stroke="#C9A96E" stroke-width="1" fill="none" opacity="0.6"/>
+            <ellipse cx="62" cy="32" rx="4" ry="3" stroke="#C9A96E" stroke-width="1" fill="none" opacity="0.6"/>
+            <!-- Lock body -->
+            <rect x="29" y="33" width="12" height="9" rx="2" fill="#C9A96E" opacity="0.85"/>
+            <!-- Lock shackle -->
+            <path d="M31 33 L31 29 C31 26 39 26 39 29 L39 33" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.85"/>
+            <!-- Lock keyhole -->
+            <circle cx="35" cy="37" r="1.5" fill="#5C1820" opacity="0.9"/>
+            <!-- Small decorative dots -->
+            <circle cx="23" cy="42" r="1.5" fill="#C9A96E" opacity="0.4"/>
+            <circle cx="47" cy="42" r="1.5" fill="#C9A96E" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <div class="book-sub">A ciência por trás do Método Billings<br>e por que ele é tão seguro</div>
+        <div class="book-label">E-book</div>
+      </div>
+    </div>
+
+    <!-- Tablet -->
+    <div class="tablet">
+      <div class="tablet-outer">
+        <div class="tablet-cam"></div>
+        <div class="tablet-screen">
+          <div class="book-logo-text" style="font-size:6px;">Laiz Aline</div>
+          <div class="book-title" style="font-size:11px;"><em>Código da</em><br>Fertilidade</div>
+          <div class="book-illustration" style="width:46px; height:46px; margin: 8px auto;">
+            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35 48 C28 48 22 44 20 38 L18 30 C18 26 21 23 25 23 L45 23 C49 23 52 26 52 30 L50 38 C48 44 42 48 35 48 Z" stroke="#C9A96E" stroke-width="1.5" fill="none" opacity="0.8"/>
+              <path d="M20 28 C14 24 10 26 8 30" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+              <path d="M50 28 C56 24 60 26 62 30" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+              <ellipse cx="8" cy="32" rx="4" ry="3" stroke="#C9A96E" stroke-width="1.2" fill="none" opacity="0.6"/>
+              <ellipse cx="62" cy="32" rx="4" ry="3" stroke="#C9A96E" stroke-width="1.2" fill="none" opacity="0.6"/>
+              <rect x="29" y="33" width="12" height="9" rx="2" fill="#C9A96E" opacity="0.85"/>
+              <path d="M31 33 L31 29 C31 26 39 26 39 29 L39 33" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.85"/>
+              <circle cx="35" cy="37" r="1.5" fill="#5C1820" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="book-sub" style="font-size:6px; margin-bottom:6px;">A ciência que o seu corpo já conhece.</div>
+          <div class="book-label" style="font-size:6px;">▶ Aula</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badge -->
+  <div class="hero-badge fade" style="animation-delay:.65s">
+    <strong>Inclui e-book completo</strong> &nbsp;para consulta sempre que precisar
+  </div>
+
+  <div class="fade" style="animation-delay:.75s;">
+    <a href="#comprar" class="btn-cta">Quero o Código da Fertilidade</a>
+    <div class="hero-price-note">por apenas <strong>R$47</strong> &nbsp;·&nbsp; pagamento único</div>
+  </div>
+</section>
+
+<!-- ════ DÚVIDA ════ -->
+<section class="alt">
+  <div class="container">
+    <div class="section-label muted-label">A pergunta que não sai da cabeça</div>
+    <h2 class="section-title" style="margin-bottom:28px;">"Como um método <em>natural</em><br>pode ser realmente seguro?"</h2>
+    <div class="doubt-box">
+      <blockquote>Essa dúvida é completamente legítima.<br>E ela merece uma resposta baseada em ciência.</blockquote>
+    </div>
+    <p class="doubt-answer">
+      Não em fé cega, não em promessas — mas em <strong>fisiologia real, comprovada por décadas de pesquisa</strong>. O Código da Fertilidade foi criado para responder exatamente isso. Você vai entender o que acontece dentro do seu corpo durante o ciclo, por que o muco infértil funciona como uma barreira natural, e por que o Método Billings é reconhecido há <strong>mais de 70 anos</strong>.<br><br>
+      Depois de assistir, a pergunta não vai mais ser "isso funciona?". Vai ser <em>"por que ninguém me ensinou isso antes?"</em>
+    </p>
+  </div>
+</section>
+
+<!-- ════ PARA QUEM É ════ -->
+<section style="padding:72px 0; background:var(--creme-lt);">
+  <div class="container">
+    <div class="section-label">Para quem é</div>
+    <h2 class="section-title">Este material é <em>para você</em> se...</h2>
+    <div class="forwho-grid" style="margin-top:32px;">
+      <div class="forwho-card">
+        <div class="forwho-icon">🌿</div>
+        <div class="forwho-text"><strong>Quer engravidar naturalmente</strong><span>e precisa entender o funcionamento real do seu ciclo fértil</span></div>
+      </div>
+      <div class="forwho-card">
+        <div class="forwho-icon">🌙</div>
+        <div class="forwho-text"><strong>Quer sair do anticoncepcional</strong><span>e busca um método natural com embasamento científico sólido</span></div>
+      </div>
+      <div class="forwho-card">
+        <div class="forwho-icon">🔬</div>
+        <div class="forwho-text"><strong>Quer entender a ciência</strong><span>por trás do Método Billings antes de começar a praticá-lo</span></div>
+      </div>
+      <div class="forwho-card">
+        <div class="forwho-icon">💡</div>
+        <div class="forwho-text"><strong>Já ouviu falar do MOB</strong><span>mas ainda tem dúvidas se ele realmente funciona</span></div>
+      </div>
+      <div class="forwho-card">
+        <div class="forwho-icon">📖</div>
+        <div class="forwho-text"><strong>Ama entender seu corpo</strong><span>e quer um material claro, sem enrolação e com linguagem acessível</span></div>
+      </div>
+      <div class="forwho-card">
+        <div class="forwho-icon">⚡</div>
+        <div class="forwho-text"><strong>Quer aprender rápido</strong><span>em uma aula direta ao ponto, sem precisar ler livros técnicos</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTEÚDO — DARK ════ -->
+<section class="dark" style="padding:80px 0;">
+  <div class="container">
+    <div class="section-label">Conteúdo</div>
+    <h2 class="section-title light">O que você vai <em>descobrir</em></h2>
+    <p class="section-intro light">Aula rápida, esclarecedora e direta ao ponto — + e-book completo para consultar sempre que precisar.</p>
+    <div class="learn-list">
+      <div class="learn-card">
+        <div class="learn-num">01</div>
+        <div>
+          <h4>A origem do Método Billings</h4>
+          <p>Como tudo começou em 1953 com o Dr. John e a Dra. Evelyn Billings — e por que mais de 70 anos de pesquisa científica sustentam esse método até hoje.</p>
+        </div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">02</div>
+        <div>
+          <h4>O que acontece dentro do seu corpo</h4>
+          <p>O caminho que o espermatozoide percorre para chegar ao óvulo — e por que esse caminho não está aberto o tempo todo.</p>
+        </div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">03</div>
+        <div>
+          <h4>Os dois tipos de muco cervical</h4>
+          <p>O muco G (infértil) que age como uma rolha natural — e o muco fértil que acolhe e guia o espermatozoide. Dois mucos, funções completamente opostas.</p>
+        </div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">04</div>
+        <div>
+          <h4>Por que o período fértil é uma janela de dias</h4>
+          <p>Como o espermatozoide pode sobreviver até 5 dias dentro do útero — e o que isso significa para quem quer engravidar ou evitar a gravidez.</p>
+        </div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">05</div>
+        <div>
+          <h4>A prova científica por trás do método</h4>
+          <p>Os estudos que comprovaram o que os corpos das mulheres já comunicavam — validados laboratorialmente por décadas de pesquisa.</p>
+        </div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">06</div>
+        <div>
+          <h4>Como aplicar esse conhecimento na prática</h4>
+          <p>As duas coisas essenciais que fazem a diferença entre saber a teoria e realmente viver com autonomia sobre a própria fertilidade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ O QUE VOCÊ RECEBE ════ -->
+<section class="alt">
+  <div class="container">
+    <div class="section-label">O que você recebe</div>
+    <h2 class="section-title">Tudo que você precisa<br>em um só lugar</h2>
+    <div class="product-wrap" style="margin-top:36px;">
+      <div class="product-head">
+        <h3>Código da Fertilidade</h3>
+        <p>Aula + E-book &nbsp;·&nbsp; Acesso imediato</p>
+      </div>
+      <div class="product-body">
+        <div class="product-row">
+          <div class="product-icon">▶</div>
+          <div>
+            <h4>Aula em vídeo — direta ao ponto</h4>
+            <p>Uma aula rápida, clara e esclarecedora que vai do "como funciona" ao "por que funciona", sem enrolação. Você assiste no seu tempo, quantas vezes quiser.</p>
+          </div>
+        </div>
+        <div class="product-row">
+          <div class="product-icon">📖</div>
+          <div>
+            <h4>E-book completo para consulta</h4>
+            <p>O mesmo conteúdo da aula em formato de leitura — para revisitar sempre que tiver dúvidas, marcar trechos e absorver no seu ritmo. No celular, no computador ou impresso.</p>
+          </div>
+        </div>
+        <div class="product-row">
+          <div class="product-icon">⚡</div>
+          <div>
+            <h4>Acesso imediato</h4>
+            <p>Assim que finalizar a compra, o link de acesso chega direto no seu e-mail. Sem espera, sem complicação.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ DEPOIMENTOS ════ -->
+<section style="padding:72px 0; background:var(--creme-lt);">
+  <div class="container">
+    <div class="section-label">Resultados reais</div>
+    <h2 class="section-title">O que dizem quem já<br><em>descobriu o código</em></h2>
+    <p class="section-intro">Mulheres que finalmente entenderam o próprio corpo — com ciência, clareza e confiança.</p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Eu já tinha ouvido falar do Método Billings, mas sempre ficou aquela dúvida: 'Será que funciona mesmo?' Depois de assistir à aula e ler o e-book, entendi a lógica por trás de tudo. Não é fé, é fisiologia. Eu simplesmente não sabia que meu próprio corpo fazia isso. Fiquei impressionada com o quanto foi claro e direto."</p>
+        <div class="t-author">
+          <div class="t-avatar">A</div>
+          <div><div class="t-name">Aline R.</div><div class="t-detail">Casada, 32 anos · São Paulo</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Precisava entender o método antes de me comprometer com ele. A aula foi exatamente o que eu buscava — rápida, sem rodeios, com linguagem que consegui acompanhar sem ser médica. O e-book complementou tudo de forma perfeita. Agora me sinto segura para dar o próximo passo."</p>
+        <div class="t-author">
+          <div class="t-avatar">C</div>
+          <div><div class="t-name">Camila M.</div><div class="t-detail">28 anos · Belo Horizonte</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Cresci ouvindo sobre o Billings mas nunca tinha recebido uma explicação científica de verdade. Laiz explicou de um jeito que finalmente fez sentido para mim. A parte dos dois tipos de muco foi reveladora — nunca tinha ouvido isso de nenhum médico ou instrutora antes."</p>
+        <div class="t-author">
+          <div class="t-avatar">F</div>
+          <div><div class="t-name">Fernanda L.</div><div class="t-detail">35 anos · Curitiba</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Fiz a compra sem muita expectativa, mas superou o que eu esperava. A Laiz não simplifica demais — ela respeita a inteligência da gente. Entendi de verdade o que o meu corpo faz e por que o método é eficaz. Valeu muito mais do que os R$47."</p>
+        <div class="t-author">
+          <div class="t-avatar">J</div>
+          <div><div class="t-name">Juliana T.</div><div class="t-detail">30 anos · Rio de Janeiro</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PREÇO ════ -->
+<section class="price-section" id="comprar">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Investimento</div>
+    <h2 class="section-title light" style="margin-bottom:10px;">Pronta para <em>descobrir</em><br>o código?</h2>
+    <p style="font-size:14px; color:rgba(251,246,238,0.5); margin-bottom:40px; font-weight:300;">Acesso imediato. Pague uma vez. Acesse para sempre.</p>
+
+    <div class="price-card">
+      <div class="price-label-sm">Código da Fertilidade · Aula + E-book</div>
+      <div class="price-big"><sup>R$</sup>47</div>
+      <div class="price-note-sm">pagamento único · sem mensalidade</div>
+      <ul class="price-list">
+        <li>Aula em vídeo — direta ao ponto</li>
+        <li>E-book completo para consulta</li>
+        <li>Acesso imediato pelo e-mail</li>
+        <li>Acesso vitalício ao material</li>
+        <li>Garantia incondicional de 7 dias</li>
+      </ul>
+      <a href="#" class="btn-cta-gold" style="display:block; text-align:center; padding:17px 0; font-size:12px;">Quero o Código da Fertilidade</a>
+    </div>
+
+    <div class="guarantee">
+      <div class="guarantee-icon">🛡️</div>
+      <div>
+        <h4>Garantia incondicional de 7 dias</h4>
+        <p>Se por qualquer motivo você não ficar satisfeita, basta enviar uma mensagem em até 7 dias e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ COMO RECEBER ════ -->
+<section class="alt">
+  <div class="container">
+    <div class="section-label muted-label">Como funciona</div>
+    <h2 class="section-title">4 passos simples<br>até o <em>conhecimento</em></h2>
+    <div class="steps" style="margin-top:44px;">
+      <div class="step">
+        <div class="step-circle">1</div>
+        <div class="step-body">
+          <h4>Faça sua compra</h4>
+          <p>Clique no botão, preencha seus dados e finalize o pagamento com segurança. Aceita cartão, Pix e boleto.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <div class="step-body">
+          <h4>Acesse pelo link no seu e-mail</h4>
+          <p>Assim que o pagamento for confirmado, você recebe o link de acesso diretamente no seu e-mail. Rápido e sem complicação.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <div class="step-body">
+          <h4>Assista à aula e baixe o e-book</h4>
+          <p>Assista à aula no seu tempo, no seu ritmo. Baixe o e-book para consultar sempre que precisar — no celular, no computador ou impresso.</p>
+        </div>
+      </div>
+      <div class="step" style="margin-bottom:0;">
+        <div class="step-circle">4</div>
+        <div class="step-body" style="padding-bottom:0;">
+          <h4>Siga o passo a passo</h4>
+          <p>Tudo pronto — agora é só seguir o caminho para descobrir o <strong>código secreto da sua fertilidade</strong>, que permite você <strong>engravidar ou evitar a gravidez quando desejar</strong>, com segurança e autonomia total.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section style="padding:72px 0; background:var(--creme-lt);">
+  <div class="container">
+    <div class="section-label muted-label">Dúvidas frequentes</div>
+    <h2 class="section-title">Perguntas que<br><em>você pode ter</em></h2>
+    <div class="faq-list" style="margin-top:36px;">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">O Método Billings realmente funciona? Tem comprovação científica?</div>
+        <div class="faq-a">Sim. O Método Billings tem mais de 70 anos de pesquisa científica. Foi desenvolvido em 1953 pelo Dr. John Billings e validado por dezenas de estudos ao redor do mundo. A aula explica exatamente como a fisiologia do corpo feminino sustenta o método — sem pedir que você confie em nada sem evidência.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Esse material já me ensina a praticar o método?</div>
+        <div class="faq-a">O Código da Fertilidade é um material de entrada — ele ensina a ciência por trás do método para que você entenda o "por que" antes do "como". Para aprender a praticar com segurança, o próximo passo é o acompanhamento com uma instrutora. Esse material te prepara perfeitamente para isso.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Serve tanto para engravidar quanto para evitar a gravidez?</div>
+        <div class="faq-a">Sim. O Método Billings funciona nos dois sentidos — você aprende a identificar quando está fértil e quando não está. A escolha de engravidar ou evitar é sua, e o método dá a base científica para as duas situações.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Como vou acessar depois da compra?</div>
+        <div class="faq-a">Assim que o pagamento for confirmado, você recebe um e-mail com o link de acesso à aula e ao e-book. O acesso é imediato e vitalício — você pode assistir e baixar quantas vezes quiser.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">E se eu não gostar?</div>
+        <div class="faq-a">Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeita, basta entrar em contato e devolvemos 100% do valor pago. Sem questionamentos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggle(this)">Qual é a duração da aula?</div>
+        <div class="faq-a">A aula é direta ao ponto — curta o suficiente para assistir em uma única sessão, densa o suficiente para deixar tudo claro. O e-book complementa para você ter sempre onde consultar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA FINAL ════ -->
+<section class="cta-final">
+  <div class="container">
+    <div class="section-label muted-label">Último recado</div>
+    <h2 class="section-title">A teoria você vai ter.<br><em>O que faz a diferença</em> é a prática.</h2>
+    <p class="section-intro">Você já deu o primeiro passo ao buscar uma resposta. O Código da Fertilidade é o segundo — entender, com ciência, o que o seu corpo já está fazendo. O próximo será aprender a ler esses sinais. Comece aqui.</p>
+    <div>
+      <a href="#comprar" class="btn-cta">Quero o Código da Fertilidade por R$47</a>
+      <p style="margin-top:14px; font-size:12.5px; color:var(--muted); font-weight:300;">Garantia de 7 dias &nbsp;·&nbsp; Acesso imediato &nbsp;·&nbsp; Pagamento seguro</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <svg viewBox="0 0 70 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px; margin-bottom:12px; opacity:0.35;">
+    <path d="M24 46 C13 40 10 25 15 15 C19 8 27 3 36 3 C28 7 23 15 23 24 C23 37 32 46 44 46 C39 49 34 50 30 50 C27 50 25 49 24 46Z" fill="#C9A96E"/>
+    <line x1="40" y1="50" x2="54" y2="7" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round"/>
+    <ellipse cx="33" cy="36" rx="8" ry="3.5" fill="#C9A96E" transform="rotate(-38 33 36)"/>
+    <ellipse cx="38" cy="26" rx="7" ry="3" fill="#C9A96E" transform="rotate(-32 38 26)"/>
+    <ellipse cx="47" cy="32" rx="7" ry="3" fill="#C9A96E" transform="rotate(32 47 32)"/>
+    <ellipse cx="50" cy="20" rx="6" ry="2.5" fill="#C9A96E" transform="rotate(25 50 20)"/>
+  </svg>
+  <p>
+    © 2025 Laiz Aline · Fertilidade Natural<br>
+    Instrutora do Método de Ovulação Billings<br><br>
+    Este material tem caráter educativo e informativo. Não substitui acompanhamento médico.
+  </p>
+</footer>
+
+<script>
+  function toggle(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
